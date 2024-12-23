@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electronics Store</title>
+  <style>
+    /* Reset default browser styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header Styling */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 15px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header nav ul {
+      list-style-type: none;
+      text-align: center;
+    }
+
+    header nav ul li {
+      display: inline-block;
+      margin: 0 20px;
+    }
+
+    header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px;
+      transition: background-color 0.3s;
+    }
+
+    header nav ul li a:hover {
+      background-color: #555;
+      border-radius: 5px;
+    }
+
+    /* Main Content */
+    main {
+      padding: 100px 20px 20px; /* Adjusted for the fixed header */
+    }
+
+    /* Section Styling */
+    section {
+      padding: 40px 0;
+    }
+
+    /* Product Grid */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product-card h3 {
+      margin-top: 10px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .product-card p {
+      margin: 10px 0;
+      font-size: 1.1em;
+      color: #555;
+    }
+
+    .product-card button {
+      padding: 12px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .product-card button:hover {
+      background-color: #218838;
+    }
+
+    /* Buy Now Section */
+    .buy-now-section {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    .buy-now-section h3 {
+      font-size: 1.6em;
+      margin-bottom: 20px;
+    }
+
+    .buy-now-section p {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+
+    .buy-now-section label {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .buy-now-section input,
+    .buy-now-section select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    .buy-now-section button {
+      padding: 12px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.2em;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .buy-now-section button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Footer Styling */
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer p {
+      font-size: 14px;
+    }
+
+    /* Responsive Layout */
+    @media (max-width: 1024px) {
+      .products {
+        grid-template-columns: repeat(3, 1fr); /* 3 products per row */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .products {
+        grid-template-columns: repeat(2, 1fr); /* 2 products per row */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .products {
+        grid-template-columns: 1fr; /* 1 product per row */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+
+  <main>
+    <!-- Home Section -->
+    <section id="home">
+      <h1>Welcome to Our Electronics Store!</h1>
+      <p>Explore our wide range of electronics and find the perfect product for you. Quality products at great prices!</p>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop">
+      <h2>Shop Our Products</h2>
+      <div class="products">
+        <!-- Laptop Product Card -->
+        <div class="product-card">
+          <img src="https://via.placeholder.com/400x200?text=Laptop" alt="Laptop">
+          <h3>Laptop</h3>
+          <p>₹59,999</p>
+          <button onclick="buyNow('Laptop', 59999)">Buy Now</button>
+        </div>
+
+        <!-- Smartwatch Product Card -->
+        <div class="product-card">
+          <img src="https://via.placeholder.com/400x200?text=Smartwatch" alt="Smartwatch">
+          <h3>Smartwatch</h3>
+          <p>₹14,999</p>
+          <button onclick="buyNow('Smartwatch', 14999)">Buy Now</button>
+        </div>
+
+        <!-- Tablet Product Card -->
+        <div class="product-card">
+          <img src="https://via.placeholder.com/400x200?text=Tablet" alt="Tablet">
+          <h3>Tablet</h3>
+          <p>₹29,999</p>
+          <button onclick="buyNow('Tablet', 29999)">Buy Now</button>
+        </div>
+
+        <!-- Headphones Product Card -->
+        <div class="product-card">
+          <img src="https://via.placeholder.com/400x200?text=Headphones" alt="Headphones">
+          <h3>Headphones</h3>
+          <p>₹8,499</p>
+          <button onclick="buyNow('Headphones', 8499)">Buy Now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Buy Now Section -->
+    <section id="buy-now" class="buy-now-section" style="display: none;">
+      <h3>Confirm Your Purchase</h3>
+      <p id="product-name"></p>
+      <p id="product-price"></p>
+      
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="address">Shipping Address</label>
+      <input type="text" id="address" name="address" required>
+
+      <label for="payment">Payment Method</label>
+      <select id="payment" name="payment">
+        <option value="credit-card">Credit Card</option>
+        <option value="paypal">PayPal</option>
+        <option value="bank-transfer">Bank Transfer</option>
+      </select>
+
+      <button onclick="completePurchase()">Complete Purchase</button>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Us</h2>
+      <p>We are an online electronics store committed to offering the best in consumer electronics at competitive prices. Our mission is to provide high-quality products and excellent customer service.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form action="#" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Electronics Store. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function buyNow(productName, productPrice) {
+      document.getElementById('buy-now').style.display = 'block';
+      document.getElementById('product-name').innerText = 'Product: ' + productName;
+      document.getElementById('product-price').innerText = 'Price: ₹' + productPrice;
+    }
+
+    function completePurchase() {
+      const name = document.getElementById('name').value;
+      const address = document.getElementById('address').value;
+      const paymentMethod = document.getElementById('payment').value;
+
+      if (name && address && paymentMethod) {
+        alert('Purchase Complete! Thank you for shopping with us!');
+        document.getElementById('buy-now').style.display = 'none';
+      } else {
+        alert('Please fill in all the fields.');
+      }
+    }
+  </script>
+</body>
+</html>
